@@ -1,10 +1,10 @@
 import os
 import time
 
-from inputs.all_files import ALL_FILES
+from src.all_files import ALL_FILES
 from parser_and_spewer import parse_input, spew_output
 
-from empty_solution import solve as empty_solve
+from src.solvers.empty_solution import solve as empty_solve
 
 INPUTS_DIR = 'inputs'
 OUTPUTS_DIR = 'outputs'
