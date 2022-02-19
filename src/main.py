@@ -1,7 +1,7 @@
 import os
 import time
 
-from inputs.all_files import ALL_FILES
+from src.all_files import ALL_FILES
 from parser_and_spewer import parse_input, spew_output
 
 from solvers.empty_solution import solve as empty_solve

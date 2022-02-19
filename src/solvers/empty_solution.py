@@ -1,4 +1,4 @@
-from models import Solution, Problem
+from src.models import Solution, Problem
 
 
 # noinspection PyUnusedLocal

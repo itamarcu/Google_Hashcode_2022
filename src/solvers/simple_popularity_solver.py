@@ -1,4 +1,4 @@
-from models import Problem, Solution
+from src.models import Problem, Solution
 
 
 def solve(problem: Problem) -> Solution:
