@@ -1,3 +1,4 @@
 ALL_FILES = [
-    'a.txt',
+    'sample.txt',
+    'c_coarse.in.txt',
 ]

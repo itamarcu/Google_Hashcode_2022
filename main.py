@@ -4,7 +4,8 @@ import time
 from inputs.all_files import ALL_FILES
 from parser_and_spewer import parse_input, spew_output
 
-from empty_solution import solve as empty_solve
+from solvers.empty_solution import solve as empty_solve
+from solvers.simple_popularity_solver import solve as simple_solve
 
 INPUTS_DIR = 'inputs'
 OUTPUTS_DIR = 'outputs'
@@ -50,5 +51,6 @@ def save_solution(file_name: str, file_comment, output_lines, score: int):
 
 
 if __name__ == '__main__':
-    solve_all(file_comment="empty", solve=empty_solve)
-    solve_one(file_name="a.txt", file_comment="empty", solve=empty_solve)
+    solve_all(file_comment="basic", solve=simple_solve)
+    # solve_all(file_comment="empty", solve=empty_solve)
+    # solve_one(file_name="sample.txt", file_comment="empty", solve=empty_solve)
