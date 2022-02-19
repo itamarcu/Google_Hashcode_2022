@@ -21,5 +21,6 @@ def parse_input(name: str, input_lines: List[str]) -> Problem:
 
 
 def spew_output(solution: Solution) -> List[str]:
-    line = ' '.join(list(solution.pizza))
+    pizza_contents = ' '.join(list(solution.pizza))
+    line = f'{len(solution.pizza)} {pizza_contents}'
     return [line]
