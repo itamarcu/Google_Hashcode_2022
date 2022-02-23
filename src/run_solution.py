@@ -49,8 +49,3 @@ def save_solution(file_name: str, file_comment, output_lines, score: int):
         for line in output_lines:
             file.write(line + "\n")
     print("-> " + output_file_name)
-
-
-if __name__ == '__main__':
-    solve_all(file_comment="empty", solve=empty_solve)
-    solve_one(file_name="a.txt", file_comment="empty", solve=empty_solve)
