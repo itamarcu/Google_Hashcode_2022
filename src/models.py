@@ -1,22 +1,20 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class Problem:
     """
     name of the problem file.
     """
     name: str
 
-    def __init__(
-            self,
-            name: str,
-    ):
-        self.name = name
 
-
+@dataclass
 class Solution:
-    """score will be -1 if we don't know what it is"""
-    score: int
+    pass
 
-    def __init__(
-            self,
-            score: int,
-    ):
-        self.score = score
+
+@dataclass
+class ScoredSolution:
+    solution: Solution
+    score: int

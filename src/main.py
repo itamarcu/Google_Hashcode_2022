@@ -1,6 +1,7 @@
 import os
 import time
 
+from scorer import score_solution
 from src.all_files import ALL_FILES
 from parser_and_spewer import parse_input, spew_output
 
@@ -31,7 +32,8 @@ def solve_one(file_name: str, file_comment="", solve=empty_solve):
     solution = solve(problem)
     t_end = time.time()
     print(f"took {t_end - t_start} seconds")
-    score = solution.score
+    scored_solution = score_solution(problem, solution)
+    score = scored_solution.score
     output_lines = spew_output(solution)
     print(f"SCORE: {score}")
     file_name = file_name[:file_name.index(".")]
