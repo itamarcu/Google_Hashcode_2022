@@ -41,8 +41,8 @@ def solve_one(file_name: str, file_comment="", solve=empty_solve):
 
 
 def save_solution(file_name: str, file_comment, output_lines, score: int):
-    output_file_name = f"{OUTPUTS_DIR}/{file_name}_{file_comment}_{score}.txt"
-    assert output_file_name != file_name
+    long_score = str(score).rjust(10, '0')  # adds 0s left of number
+    output_file_name = f"{OUTPUTS_DIR}/{file_name}_{long_score}_{file_comment}.txt"
     if not os.path.exists(OUTPUTS_DIR):
         os.mkdir(OUTPUTS_DIR)
     with open(output_file_name, "w+") as file:
