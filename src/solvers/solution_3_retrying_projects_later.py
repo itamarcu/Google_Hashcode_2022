@@ -1,5 +1,5 @@
 from models import Problem, Solution
-from solvers.parameter_project_sorter import get_sorted_projects
+from solvers.alt_project_sorter import get_sorted_projects
 from solvers.solve_try_3_retry_projects_later import solve_attempt_3
 
 

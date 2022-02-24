@@ -38,6 +38,8 @@ def solve_attempt_3(problem: Problem, sorted_projects: List[Project]) -> Solutio
         score = max(0, project.score_reward - min(0, completion_date - project.best_before_date))
         if score == 0:
             # cancel project, too late
+            remaining_projects.pop(i_project)
+            i_project = -1
             continue
         # we need one for every role
         role_slots: List[RoleSlot] = [
@@ -75,7 +77,7 @@ def solve_attempt_3(problem: Problem, sorted_projects: List[Project]) -> Solutio
                 # level up!
                 if c.skills.get(sn, 0) <= sl:
                     c.skills[sn] = c.skills.get(sn, 0) + 1
-            remaining_projects.remove(project)
+            remaining_projects.pop(i_project)
             i_project -= 1
             ongoing_project_dates.append(completion_date)
             completed_projects.append(project)
