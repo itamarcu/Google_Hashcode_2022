@@ -1,4 +1,5 @@
 from models import Problem, Solution
+from solvers.simple_project_sorter import get_sorted_projects
 from solvers.solve_by_project_order import solve_by_project_order
 
 
@@ -10,7 +11,7 @@ def solve(problem: Problem) -> Solution:
     """
     projects = problem.projects
     print('Sorting projects...')
-    sorted_projects = get_sorted_project(problem)
+    sorted_projects = get_sorted_projects(problem)
     print('Completing in project order...')
     solution = solve_by_project_order(problem, sorted_projects)
     print(f'Done, completed {len(solution.projects)}/{len(projects)} projects'
