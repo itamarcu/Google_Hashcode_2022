@@ -75,6 +75,7 @@ def solve_by_project_order(problem: Problem, sorted_projects: List[Project]) -> 
                 if c.skills.get(sn, 0) <= sl:
                     c.skills[sn] = c.skills.get(sn, 0) + 1
             sorted_projects.remove(project)
+            i_project -= 1
             ongoing_project_dates.append(completion_date)
             completed_projects.append(project)
             contributors_by_project.append(contributors_here)
