@@ -36,7 +36,8 @@ class Problem:
 
 @dataclass
 class Solution:
-    pass
+    projects: List[Project]
+    contributors: List[List[Contributor]]
 
 
 @dataclass
