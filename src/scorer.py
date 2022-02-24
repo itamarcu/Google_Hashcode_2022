@@ -10,11 +10,11 @@ def score_solution(problem: Problem, solution: Solution) -> ScoredSolution:
     for i in range(len(solution.projects)):
         project = solution.projects[i]
         contributors = solution.contributors[i]
-        start_time = max([contributor_availability[contributor] for contributor in contributors])
+        start_time = max([contributor_availability[contributor.name] for contributor in contributors])
         end_time = start_time + project.days_needed
         for contributor in contributors:
-            contributor_availability[contributor] = end_time
-        score += min(0, project.score_reward - (end_time - project.best_before_date))
+            contributor_availability[contributor.name] = end_time
+        score += max(0, project.score_reward - (end_time - project.best_before_date))
     return ScoredSolution(
         score=score,
         solution=solution,
