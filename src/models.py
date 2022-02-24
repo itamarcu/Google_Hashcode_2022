@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
 Skill = str
 
@@ -21,7 +21,7 @@ class Project:
     """between 1 to 10^5"""
     best_before_date: int
     """between 1 to 100"""
-    roles_needed: Dict[Skill, int]
+    roles_needed: List[Tuple[Skill, int]]
 
 
 @dataclass

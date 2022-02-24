@@ -23,12 +23,12 @@ def parse_input(name: str, input_lines: List[str]) -> Problem:
     for p_i in range(project_count):
         line_index += 1
         name, di, si, bi, ri = input_lines[line_index].split(' ')
-        roles_needed = {}
+        roles_needed = []
         for r_i in range(int(ri)):
             line_index += 1
             skill_name, skill_level_s = input_lines[line_index].split(' ')
             skill_level = int(skill_level_s)
-            roles_needed[skill_name] = skill_level
+            roles_needed.append((skill_name, skill_level))
         project = Project(name, int(di), int(si), int(bi), roles_needed)
         projects.append(project)
 
