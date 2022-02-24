@@ -1,0 +1,1 @@
+# Hashcode 2022 - Team "Read Practical Guide To Evil", position #2589, score 1713659
