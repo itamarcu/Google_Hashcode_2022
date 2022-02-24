@@ -6,7 +6,8 @@ from models import Problem, Project, Solution, Contributor, Skill
 RoleSlot = Tuple[int, Skill, int, Optional[Contributor], bool]
 MAX_DAYS = 100000
 
-def try_fitting_contributor(contributor: Contributor, role_slots: List[RoleSlot])\
+
+def try_fitting_contributor(contributor: Contributor, role_slots: List[RoleSlot]) \
         -> Tuple[int, bool]:
     # returns (role_index, will_be_mentored)
     for role_index, skill_name, skill_level_needed, existing_contributor, has_mentor in role_slots:
@@ -15,7 +16,7 @@ def try_fitting_contributor(contributor: Contributor, role_slots: List[RoleSlot]
         contributor_skill = contributor.skills.get(skill_name, 0)
         if has_mentor and contributor_skill == skill_level_needed - 1:
             return role_index, True
-        if contributor_skill == skill_level_needed:
+        if contributor_skill >= skill_level_needed:
             return role_index, False
     return -1, False
 
