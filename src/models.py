@@ -37,6 +37,9 @@ class Problem:
 @dataclass
 class Solution:
     projects: List[Project]
+    """
+    for each project in this solution (first index), which contributors match each role (second index)
+    """
     contributors: List[List[Contributor]]
 
 

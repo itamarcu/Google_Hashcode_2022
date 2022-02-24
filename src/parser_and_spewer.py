@@ -36,4 +36,8 @@ def parse_input(name: str, input_lines: List[str]) -> Problem:
 
 
 def spew_output(solution: Solution) -> List[str]:
-    return []
+    output_lines = [str(len(solution.projects))]
+    for idx, project in zip(solution.projects):
+        output_lines.append(project.name)
+        output_lines.append(' '.join(c.name for c in solution.contributors[idx]))
+    return output_lines
