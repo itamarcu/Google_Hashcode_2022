@@ -43,7 +43,7 @@ def get_sorted_projects(problem: Problem):
     average_due_date = sum([project.best_before_date for project in projects]) / len(projects)
 
     score_dict = [[project.score_reward/(project_difficulty[project.name] * project.days_needed)
-                   * (1 + math.log(project.best_before_date / average_due_date)), project] for project in projects]
+                   - (project.best_before_date / average_due_date) * 10, project] for project in projects]
     score_dict.sort(key=lambda x: x[0])
     return [score_pair[1] for score_pair in score_dict]
     # assumed_day = 0
