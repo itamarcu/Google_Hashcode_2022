@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import List
 from models import Problem, Solution, Contributor, Project
 
@@ -11,7 +12,7 @@ def parse_input(name: str, input_lines: List[str]) -> Problem:
     for c_i in range(contributor_count):
         line_index += 1
         contributor_name, skill_count = input_lines[line_index].split(' ')
-        skills = {}
+        skills = defaultdict(lambda: 0)
         for s_i in range(int(skill_count)):
             line_index += 1
             skill_name, skill_level_s = input_lines[line_index].split(' ')

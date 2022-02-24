@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, DefaultDict
 
 Skill = str
 
@@ -8,7 +8,7 @@ Skill = str
 class Contributor:
     name: str
     """between 1 to 10"""
-    skills: Dict[Skill, int]
+    skills: DefaultDict[Skill, int]
 
 
 @dataclass
