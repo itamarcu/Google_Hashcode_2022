@@ -1,5 +1,5 @@
 from models import Problem, Solution
-from solvers.parameter_project_sorter import get_sorted_projects
+from solvers.alt_project_sorter import get_sorted_projects
 from solvers.solve_by_project_order import solve_by_project_order
 
 
