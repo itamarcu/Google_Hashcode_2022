@@ -2,7 +2,7 @@ import os
 import time
 
 from scorer import score_solution
-from src.all_files import ALL_FILES
+from src.all_input_files import ALL_FILES
 from parser_and_spewer import parse_input, spew_output
 
 from src.solvers.empty_solution import solve as empty_solve
