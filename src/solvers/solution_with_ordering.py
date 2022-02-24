@@ -1,4 +1,5 @@
 from models import Problem, Solution
+from solvers.solve_by_project_order import solve_by_project_order
 
 
 def solve(problem: Problem) -> Solution:
@@ -13,5 +14,5 @@ def solve(problem: Problem) -> Solution:
     print('Completing in project order...')
     solution = solve_by_project_order(problem, sorted_projects)
     print(f'Done, completed {len(solution.projects)}/{len(projects)} projects'
-          f' ({len(solution.projects)/len(projects)%.02}%)')
+          f' ({len(solution.projects) / len(projects) % .02}%)')
     return solution
