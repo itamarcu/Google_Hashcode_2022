@@ -14,7 +14,7 @@ def score_solution(problem: Problem, solution: Solution) -> ScoredSolution:
         end_time = start_time + project.days_needed
         for contributor in contributors:
             contributor_availability[contributor.name] = end_time
-        score += max(0, project.score_reward - (end_time - project.best_before_date))
+        score += max(0, project.score_reward - min(0, end_time - project.best_before_date))
     return ScoredSolution(
         score=score,
         solution=solution,
