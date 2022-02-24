@@ -24,6 +24,7 @@ def try_fitting_contributor(contributor: Contributor, role_slots: List[RoleSlot]
 def solve_attempt_3(problem: Problem, sorted_projects: List[Project]) -> Solution:
     """NOTE: contributors will mutate during this, having skill levels increased"""
     now = 0
+    total_score = 0
     ongoing_project_dates: List[int] = []
     available_contributors = problem.contributors
     contributors_available_by_date = defaultdict(lambda: [])
@@ -35,7 +36,7 @@ def solve_attempt_3(problem: Problem, sorted_projects: List[Project]) -> Solutio
         i_project += 1
         project = remaining_projects[i_project]
         completion_date = now + project.days_needed
-        score = max(0, project.score_reward - min(0, completion_date - project.best_before_date))
+        score = max(0, project.score_reward - max(0, completion_date - project.best_before_date))
         if score == 0:
             # cancel project, too late
             remaining_projects.pop(i_project)
@@ -46,6 +47,8 @@ def solve_attempt_3(problem: Problem, sorted_projects: List[Project]) -> Solutio
             # (role_index, skill_name, skill_level_needed, contributor?, has_mentor)
             (i, name, level, None, False) for i, (name, level) in enumerate(project.roles_needed)
         ]
+        if len(role_slots) > len(available_contributors):
+            continue
         successful = False
         for contributor in available_contributors:
             fit_idx, is_mentored = try_fitting_contributor(contributor, role_slots)
@@ -82,7 +85,8 @@ def solve_attempt_3(problem: Problem, sorted_projects: List[Project]) -> Solutio
             ongoing_project_dates.append(completion_date)
             completed_projects.append(project)
             contributors_by_project.append(contributors_here)
-            print(f"Project {project.name} will complete at {completion_date}")
+            total_score += score
+            print(f"Project {project.name} will complete at {completion_date} with score {score}")
         else:
             # not possible to complete the project
             # skip it for now
@@ -95,7 +99,7 @@ def solve_attempt_3(problem: Problem, sorted_projects: List[Project]) -> Solutio
             if released_contribs:
                 available_contributors.extend(released_contribs)
                 break
-        print(f"Waited until day {now}")
+        print(f"Waited until day {now}, current total score: {total_score}")
         # retry all projects in order
         i_project = 0
 
